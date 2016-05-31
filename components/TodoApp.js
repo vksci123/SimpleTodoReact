@@ -1,4 +1,5 @@
 import React from 'react' 
+// import styles from './Style.scss';
 
 class TodoApp extends React.Component {
     constructor(props)  {
@@ -28,8 +29,13 @@ class TodoApp extends React.Component {
     render() {
         console.log("Compent") ;
         console.log(this) ;
+        const img = require('./bottle.png');
+        const styles = require('./Style.scss');
+        const test = {};
+        test['color'] = {
+          'backgroundColor': 'green'
+        };
         var todo_html = this.state.todos.map((m, i) => {
-
             let todo_text = ( m.t_status )? 'D:' + m.text : m.text 
             console.log('m is ') 
             console.log(m)
@@ -42,8 +48,13 @@ class TodoApp extends React.Component {
         }) 
         console.log('todo_html') 
         console.log(todo_html) 
+        console.log(styles);
         return  (
                     <div className='todo_wrapper'>
+                      <div className={ styles.color_green } >
+                        This will be coloured green
+                      </div>
+                      <img src={ img} alt='help me!' />
                         <div className='todo_data'>
                             <ul> 
                                 {todo_html}
